@@ -1,0 +1,943 @@
+<style>
+    /* General Styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+  
+    /* Headings */
+    h1, h2, h3, h4 {
+      font-family: 'Georgia', serif; /* A more classic font for headings */
+      margin-bottom: 0.75em;
+    }
+  
+    h1 {
+      font-size: 2.8em;
+      color: #2c3e50; /* Dark Blue-Gray */
+      text-align: center;
+      border-bottom: 2px solid #3498db; /* Light Blue */
+      padding-bottom: 10px;
+      margin-top: 0;
+    }
+  
+    h2 {
+      font-size: 2em;
+      color: #16a085; /* Teal */
+      margin-top: 1.5em;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 8px;
+    }
+  
+    h3 {
+      font-size: 1.6em;
+      color: #2980b9; /* Medium Blue */
+      margin-top: 1.2em;
+    }
+  
+    h4 {
+      font-size: 1.3em;
+      color: #8e44ad; /* Purple */
+      margin-top: 1em;
+    }
+  
+    /* Paragraphs and Text */
+    p, li {
+      font-size: 1.05em;
+      margin-bottom: 0.8em;
+      color: #555; /* Dark Gray */
+    }
+  
+    strong {
+      color: #c0392b; /* Dark Red */
+    }
+  
+    /* Code Blocks / SQL */
+    pre {
+      background-color: #2d3436; /* Darker Gray for code background */
+      color: #dfe6e9; /* Light Gray for code text */
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.95em;
+      border: 1px solid #636e72;
+    }
+  
+    code {
+      background-color: #ecf0f1; /* Light Gray for inline code */
+      color: #2c3e50;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+  
+    th, td {
+      border: 1px solid #bdc3c7; /* Light Gray Border */
+      padding: 12px 15px;
+      text-align: left;
+    }
+  
+    th {
+      background-color: #3498db; /* Light Blue */
+      color: #ffffff;
+      font-weight: bold;
+      font-family: 'Inter', sans-serif;
+    }
+  
+    tr:nth-child(even) {
+      background-color: #f5f7fa; /* Very Light Blue for even rows */
+    }
+  
+    tr:hover {
+      background-color: #e9ecef; /* Light Gray on hover */
+    }
+  
+    /* Lists */
+    ul, ol {
+      padding-left: 30px;
+      margin-bottom: 1em;
+    }
+  
+    li {
+      margin-bottom: 0.5em;
+    }
+  
+    /* Special Sections */
+    .title-page {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 20px;
+      background-color: #eaf2f8; /* Very Light Blue */
+      border-radius: 8px;
+    }
+  
+    .title-page h1 {
+      color: #1a5276; /* Darker Blue */
+      border-bottom: none;
+    }
+  
+    .title-page p {
+      font-size: 1.1em;
+      color: #566573; /* Medium Gray */
+    }
+  
+    .report-by {
+      margin-top: 30px;
+      font-style: italic;
+    }
+  
+    .report-by p {
+      margin-bottom: 5px;
+    }
+  
+    .thank-you {
+      text-align: center;
+      font-size: 1.8em;
+      color: #16a085; /* Teal */
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #e8f6f3; /* Light Teal */
+      border-radius: 8px;
+    }
+  
+    .image-placeholder {
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+      font-style: italic;
+      color: #7f8c8d; /* Gray */
+      border: 1px dashed #bdc3c7;
+      padding: 10px;
+      border-radius: 5px;
+      max-width: 300px; /* Adjust as needed */
+    }
+  
+    .er-diagram-placeholder {
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+      font-style: italic;
+      color: #7f8c8d; /* Gray */
+      border: 2px solid #2980b9; /* Medium Blue Border */
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #f0f5f9; /* Light Blue-Gray background */
+    }
+  
+    .section-divider {
+        border-bottom: 2px dashed #3498db;
+        margin: 40px 0;
+    }
+  
+  </style>
+  
+  <div class="container">
+  
+  <div class="title-page">
+    <div class="image-placeholder"><img src="SRMAPlogo.png" alt="SRM"></div>
+    <h1>A Report on Library Management System</h1>
+    <p>Prepared for: <strong>Dr. Ratna Raju Mekala - Assistant Professor (CSE Dept.)</strong></p>
+    <br>
+    <p>School of Engineering and Technology</p>
+    <p>Department of Computer Science and Engineering</p>
+    <p>SRM University AP, Mangalagiri, Guntur – 522502</p>
+  
+    <div class="report-by">
+      <p><strong>Report By:</strong></p>
+      <p>G Vishal Sai  ❘❘  AP23110011388 </p>
+      <p>C S Hameed  ❘❘  AP23110011350 </p>
+      <p>S K Nazeer  ❘❘  AP23110011396 </p>
+      <p>L Jashwanth  ❘❘  AP23110011398</p>
+    </div>
+  </div>
+  
+  <h2>Table of Contents</h2>
+  <ol>
+    <li><a href="#project-background">Project Background</a></li>
+    <li><a href="#description-project">Description of the Project</a></li>
+    <li><a href="#er-diagrams">ER Diagrams</a></li>
+    <li><a href="#description-er">Description of ER Diagrams</a></li>
+    <li><a href="#conversion-er">Conversion of ER Diagrams into Tables</a></li>
+    <li><a href="#description-tables">Description of Tables</a></li>
+    <li><a href="#normalization">Normalization of Tables</a></li>
+    <li><a href="#creation-data">Creation of Data in Tables</a></li>
+    <li><a href="#sql-queries">SQL Queries</a></li>
+    <li><a href="#creation-views">Creation of Views</a></li>
+    <li><a href="#references">References</a></li>
+  </ol>
+  
+  <div class="section-divider"></div>
+  
+  <h2 id="project-background">1. Project Background</h2>
+  <p>The <strong>Library Management System</strong> is a relational database project designed to manage book inventories, reader memberships, staff operations, and book transactions like issuing and returning. It reflects a real-world library environment, ensuring data accuracy, simplified access, and secure operations through normalized tables, foreign key constraints, and structured SQL queries and views.</p>
+  
+  <h4>Key Table Purposes:</h4>
+  <ul>
+    <li>
+      <strong>READERS Table:</strong>
+      <p><strong>Purpose:</strong> Stores all personal information of registered library users.</p>
+      <p><strong>Columns:</strong> User_ID (Unique ID), Firstname, Lastname, Email, Phone_no, Address.</p>
+      <p><strong>Why:</strong> Enables accurate identification of each user and helps in managing borrow history.</p>
+    </li>
+    <li>
+      <strong>BOOKS Table:</strong>
+      <p><strong>Purpose:</strong> Stores detailed information about every book in the library.</p>
+      <p><strong>Columns:</strong> ISBN (Unique ID), AuthNo, Title, Edition, Category, Price, Publisher_id.</p>
+      <p><strong>Why:</strong> Tracks all book data and links books to publishers and reservations.</p>
+    </li>
+    <li>
+      <strong>PUBLISHER Table:</strong>
+      <p><strong>Purpose:</strong> Stores information about book publishers.</p>
+      <p><strong>Columns:</strong> Publisher_id (Unique ID), Name, YearOfPublication.</p>
+      <p><strong>Why:</strong> Maintains source details for each book and supports book classification.</p>
+    </li>
+    <li>
+      <strong>STAFF Table:</strong>
+      <p><strong>Purpose:</strong> Holds information about staff members managing the library.</p>
+      <p><strong>Columns:</strong> Staff_id (Unique ID), Name, LoginId.</p>
+      <p><strong>Why:</strong> Ensures authorized staff access and links actions (like issuing books) to responsible individuals.</p>
+    </li>
+    <li>
+      <strong>AUTHENTICATIONSYSTEM Table:</strong>
+      <p><strong>Purpose:</strong> Stores login credentials for staff.</p>
+      <p><strong>Columns:</strong> LoginId (Unique ID), Password.</p>
+      <p><strong>Why:</strong> Secures staff access to the system and links credentials to the Staff table.</p>
+    </li>
+    <li>
+      <strong>RESERVERETURNDATE Table:</strong>
+      <p><strong>Purpose:</strong> Records reservation and return dates of books by readers.</p>
+      <p><strong>Columns:</strong> User_ID, ISBN, ReserveDate, ReturnDate.</p>
+      <p><strong>Why:</strong> Tracks which books were borrowed by whom, when, and if returned.</p>
+    </li>
+    <li>
+      <strong>REPORTS Table:</strong>
+      <p><strong>Purpose:</strong> Records book issue and return actions handled by staff.</p>
+      <p><strong>Columns:</strong> Staff_id, Book_No, User_id, IssueReturn.</p>
+      <p><strong>Why:</strong> Helps generate reports of transactions and track staff activities.</p>
+    </li>
+  </ul>
+  
+  <div class="section-divider"></div>
+  
+  <h2 id="description-project">2. Description of the Project</h2>
+  <p>The <strong>Library Management System</strong> is a software tool that helps run the daily activities of a library. It is used to keep track of books, members, and book transactions like issuing and returning books. This system saves time for librarians and helps reduce mistakes that can happen with manual work. It uses a Database Management System (DBMS) to store and manage important data such as book details, member records, and issue/return history. With this system, it becomes easy to add new books, register members, and quickly search for available books.</p>
+  <p>The system has different features for both librarians and users. Librarians can manage the entire system, issue books, and check reports. Users can view available books and their own borrowing history. The system also helps in tracking due dates and calculating fines for late returns. Overall, this project helps make the library more organized and efficient by reducing paperwork, avoiding data loss, and making it easier to update and find information. It is a simple and practical project to understand how databases are used in real life.</p>
+  
+  <div class="section-divider"></div>
+  
+  <h2 id="er-diagrams">3. ER Diagram</h2>
+  <div class="er-diagram-placeholder">
+    <img src="a1.png" alt="ER Diagram">
+    <p>This is the ER Diagram of our project.</p>
+  </div>
+  
+  <div class="section-divider"></div>
+  
+  <h2 id="description-er">4. Description of ER Diagrams</h2>
+  <h3>Entities and Their Attributes:</h3>
+  <ul>
+    <li><strong>AuthenticationSystem:</strong>
+      <ul>
+        <li><strong>Primary Key:</strong> `LoginId`</li>
+        <li><strong>Attributes:</strong> `Password`</li>
+      </ul>
+    </li>
+    <li><strong>Staff:</strong>
+      <ul>
+        <li><strong>Primary Key:</strong> `Staff_id`</li>
+        <li><strong>Attributes:</strong> `Name`, `LoginId` (Foreign Key)</li>
+      </ul>
+    </li>
+    <li><strong>Readers:</strong>
+      <ul>
+        <li><strong>Primary Key:</strong> `User_ID`</li>
+        <li><strong>Attributes:</strong> `Firstname`, `Lastname`, `Email`, `Phone_no`, `Address`, `Name`</li>
+      </ul>
+    </li>
+    <li><strong>Publisher:</strong>
+      <ul>
+        <li><strong>Primary Key:</strong> `Publisher_id`</li>
+        <li><strong>Attributes:</strong> `Name`, `YearOfPublication`</li>
+      </ul>
+    </li>
+    <li><strong>Books:</strong>
+      <ul>
+        <li><strong>Primary Key:</strong> `ISBN`</li>
+        <li><strong>Attributes:</strong> `Authno`, `Title`, `Edition`, `Category`, `Price`, `Publisher_id` (Foreign Key)</li>
+      </ul>
+    </li>
+    <li><strong>ReserveReturnDate:</strong>
+      <ul>
+        <li><strong>Primary Key:</strong> Composite (`User_id` + `ISBN`)</li>
+        <li><strong>Attributes:</strong> `ReserveDate`, `ReturnDate`, `DueDate`</li>
+      </ul>
+    </li>
+    <li><strong>Reports:</strong>
+      <ul>
+        <li><strong>Primary Key:</strong> `Reg_no`</li>
+        <li><strong>Attributes:</strong> `user_id` (Foreign Key), `Book_no` (Foreign Key), `IssueReturn`, `Staff_id` (Foreign Key)</li>
+      </ul>
+    </li>
+  </ul>
+  
+  <div class="section-divider"></div>
+  
+  <h2 id="conversion-er">5. Conversion of ER Diagrams into Tables</h2>
+  
+  <h3>AuthenticationSystem Entity:</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Type</th>
+        <th>Constraints</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>LoginId</td>
+        <td>INT</td>
+        <td>PRIMARY KEY</td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td>VARCHAR(255)</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3>Staff Entity:</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Type</th>
+        <th>Constraints</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Staff_id</td>
+        <td>INT</td>
+        <td>PRIMARY KEY</td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td>VARCHAR(100)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>LoginId</td>
+        <td>INT</td>
+        <td>FOREIGN KEY</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3>Readers Entity:</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Type</th>
+        <th>Constraints</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>User_ID</td>
+        <td>INT</td>
+        <td>PRIMARY KEY</td>
+      </tr>
+      <tr>
+        <td>Firstname</td>
+        <td>VARCHAR(50)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Lastname</td>
+        <td>VARCHAR(50)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>VARCHAR(100)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Phone_no</td>
+        <td>VARCHAR(20)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td>VARCHAR(255)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td>VARCHAR(100)</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3>Publisher Entity:</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Type</th>
+        <th>Constraints</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Publisher_id</td>
+        <td>INT</td>
+        <td>PRIMARY KEY</td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td>VARCHAR(100)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>YearOfPublication</td>
+        <td>INT</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3>Books Entity:</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Type</th>
+        <th>Constraints</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ISBN</td>
+        <td>INT</td>
+        <td>PRIMARY KEY</td>
+      </tr>
+      <tr>
+        <td>AuthNo</td>
+        <td>INT</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Title</td>
+        <td>VARCHAR(255)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Edition</td>
+        <td>VARCHAR(255)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Category</td>
+        <td>VARCHAR(255)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Price</td>
+        <td>DECIMAL(10, 2)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Publisher_id</td>
+        <td>INT</td>
+        <td>FOREIGN KEY</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3>ReserveReturnDate Entity:</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Type</th>
+        <th>Constraints</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>User_ID</td>
+        <td>INT</td>
+        <td>PRIMARY KEY</td>
+      </tr>
+      <tr>
+        <td>ISBN</td>
+        <td>INT</td>
+        <td>PRIMARY KEY, FOREIGN KEY</td>
+      </tr>
+      <tr>
+        <td>ReserveDate</td>
+        <td>DATE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>ReturnDate</td>
+        <td>DATE</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>DueDate</td>
+        <td>DATE</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3>Reports Entity:</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Type</th>
+        <th>Constraints</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Reg_No</td>
+        <td>INT</td>
+        <td>PRIMARY KEY</td>
+      </tr>
+      <tr>
+        <td>User_id</td>
+        <td>INT</td>
+        <td>FOREIGN KEY</td>
+      </tr>
+      <tr>
+        <td>Book_No</td>
+        <td>INT</td>
+        <td>FOREIGN KEY</td>
+      </tr>
+      <tr>
+        <td>IssueReturn</td>
+        <td>VARCHAR(20)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Staff_id</td>
+        <td>INT</td>
+        <td>FOREIGN KEY</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="section-divider"></div>
+  
+  <h2 id="description-tables">6. Description of Tables</h2>
+  
+  <h4>AuthenticationSystem</h4>
+  <p><strong>Purpose:</strong> Stores login credentials for staff.</p>
+  <p><strong>Attributes:</strong></p>
+  <ul>
+    <li><code>LoginId</code>: Unique identifier for login credentials.</li>
+    <li><code>Password</code>: Encrypted or plain text password (ideally hashed).</li>
+  </ul>
+  
+  <h4>Staff</h4>
+  <p><strong>Purpose:</strong> Holds information about library staff members.</p>
+  <p><strong>Attributes:</strong></p>
+  <ul>
+    <li><code>Staff_id</code>: Unique identifier for staff.</li>
+    <li><code>Name</code>: Staff member’s full name.</li>
+    <li><code>LoginId</code>: Foreign key linking to <code>AuthenticationSystem</code> for login.</li>
+  </ul>
+  <p><strong>Relationships:</strong></p>
+  <ul>
+    <li>Logs in via <code>AuthenticationSystem</code>.</li>
+    <li>Manages transactions in the <code>Reports</code> table.</li>
+  </ul>
+  
+  <h4>Readers</h4>
+  <p><strong>Purpose:</strong> Contains detailed information about library users (readers).</p>
+  <p><strong>Attributes:</strong></p>
+  <ul>
+    <li><code>User_ID</code>: Unique ID for each reader.</li>
+    <li><code>Firstname</code>, <code>Lastname</code>: Reader’s names.</li>
+    <li><code>Email</code>: Reader’s email address.</li>
+    <li><code>Phone_no</code>: Contact number.</li>
+    <li><code>Address</code>: Residential address.</li>
+    <li><code>Name</code>: Full name or display name (may duplicate first/last name).</li>
+  </ul>
+  <p><strong>Relationships:</strong></p>
+  <ul>
+    <li>Keeps track of books through <code>ReserveReturnDate</code>.</li>
+    <li>Appears in <code>Reports</code> when books are issued/returned.</li>
+  </ul>
+  
+  <h4>Publisher</h4>
+  <p><strong>Purpose:</strong> Represents publishing companies of books.</p>
+  <p><strong>Attributes:</strong></p>
+  <ul>
+    <li><code>Publisher_id</code>: Unique ID for each publisher.</li>
+    <li><code>Name</code>: Publisher name.</li>
+    <li><code>Yearofpublication</code>: Year when they published the book(s).</li>
+  </ul>
+  <p><strong>Relationships:</strong></p>
+  <ul>
+    <li>Publishes multiple <code>Books</code>.</li>
+  </ul>
+  
+  <h4>Books</h4>
+  <p><strong>Purpose:</strong> Contains book details available in the library.</p>
+  <p><strong>Attributes:</strong></p>
+  <ul>
+    <li><code>ISBN</code>: International Standard Book Number (unique).</li>
+    <li><code>AuthNo</code>: Author ID or reference.</li>
+    <li><code>Title</code>: Name of the book.</li>
+    <li><code>Edition</code>: Book edition.</li>
+    <li><code>Category</code>: Genre/category (e.g., Programming, Fiction).</li>
+    <li><code>Price</code>: Price of the book.</li>
+    <li><code>Publisher_id</code>: Foreign key linking to the <code>Publisher</code> table.</li>
+  </ul>
+  <p><strong>Relationships:</strong></p>
+  <ul>
+    <li>Maintained in <code>ReserveReturnDate</code> for tracking.</li>
+    <li>Managed in <code>Reports</code> for issuing/returning.</li>
+    <li>Linked to a <code>Publisher</code>.</li>
+  </ul>
+  
+  <h4>ReserveReturnDate</h4>
+  <p><strong>Purpose:</strong> Tracks reservation and return activity between readers and books.</p>
+  <p><strong>Attributes:</strong></p>
+  <ul>
+    <li><code>User_ID</code>: Foreign key to <code>Readers</code>.</li>
+    <li><code>ISBN</code>: Foreign key to <code>Books</code>.</li>
+    <li><code>ReserveDate</code>: When the book was reserved.</li>
+    <li><code>ReturnDate</code>: When the book was returned (null if not returned).</li>
+    <li><code>dueDate</code>: The date it should be returned.</li>
+  </ul>
+  <p><strong>Primary Key:</strong> Composite key (<code>User_ID</code>, <code>ISBN</code>).</p>
+  
+  <h4>Reports</h4>
+  <p><strong>Purpose:</strong> Captures transaction logs of book issues/returns.</p>
+  <p><strong>Attributes:</strong></p>
+  <ul>
+    <li><code>Reg_no</code>: Unique transaction record number.</li>
+    <li><code>User_ID</code>: Reader involved in the transaction.</li>
+    <li><code>Book_No</code>: Book involved (same as ISBN).</li>
+    <li><code>IssueReturn</code>: Status, either 'Issue' or 'Return'.</li>
+    <li><code>Staff_id</code>: Staff who performed the operation.</li>
+  </ul>
+  <p><strong>Relationships:</strong> Connected to <code>Readers</code>, <code>Books</code>, and <code>Staff</code>.</p>
+  
+  <div class="section-divider"></div>
+  
+  <h2 id="normalization">7. Normalization of Tables</h2>
+  
+  <h3>1. First Normal Form (1NF) – Eliminate repeating groups</h3>
+  <p>Tables already satisfy 1NF based on the ER diagram:</p>
+  <ul>
+    <li>Each cell has atomic (indivisible) values.
+      <ul>
+        <li>Attributes like <code>Firstname</code>, <code>Lastname</code>, <code>Email</code>, <code>Price</code>, etc., contain single, indivisible values.</li>
+      </ul>
+    </li>
+    <li>Each row is unique (Primary Keys).
+      <ul>
+        <li>Entities like <code>Readers</code>, <code>Books</code>, <code>Staff</code>, <code>Publisher</code>, <code>AuthenticationSystem</code>, etc., all have a primary key (<code>User_ID</code>, <code>ISBN</code>, <code>Staff_id</code>, etc.) ensuring row uniqueness.</li>
+      </ul>
+    </li>
+  </ul>
+  
+  <h3>2. Second Normal Form (2NF) – Eliminate Partial Dependencies</h3>
+  <p>Applies to tables with composite primary keys. We check if non-key attributes depend on the entire key, not part of it. Your schema satisfies 2NF because:</p>
+  <ul>
+    <li>For instance:
+      <ul>
+        <li>In <code>Readers</code>, fields like <code>Firstname</code>, <code>Lastname</code>, <code>Email</code>, <code>Phone_no</code>, and <code>Address</code> are fully dependent on <code>User_ID</code>.</li>
+        <li>In <code>Books</code>, attributes such as <code>Title</code>, <code>Category</code>, <code>Edition</code>, and <code>Price</code> depend on the primary key <code>ISBN</code>.</li>
+        <li>In <code>Reports</code>, <code>Book_No</code> and <code>IssueReturn</code> are fully dependent on the primary key <code>Reg_no</code>.</li>
+      </ul>
+    </li>
+  </ul>
+  <p><em>Note: For <code>ReserveReturnDate</code> with composite key (<code>User_ID</code>, <code>ISBN</code>), attributes like <code>ReserveDate</code>, <code>ReturnDate</code>, <code>DueDate</code> depend on the whole key.</em></p>
+  
+  <h3>3. Third Normal Form (3NF) – Remove transitive dependencies</h3>
+  <p>No non-prime attribute should depend on another non-prime attribute. It is already in 2NF. There are no transitive dependencies; no non-key attribute depends on another non-key attribute.</p>
+  <p><strong>Examples:</strong></p>
+  <ul>
+    <li>In <code>Books</code>, attributes like <code>Title</code>, <code>Category</code>, <code>Edition</code>, and <code>Price</code> all depend directly on the primary key <code>ISBN</code> — not on each other. (Assuming <code>Publisher_id</code> is a foreign key and doesn't introduce transitive dependency for other book attributes).</li>
+    <li>In <code>Reports</code>, <code>User_ID</code> and <code>Book_No</code> are foreign keys, and <code>IssueReturn</code> is directly related to the transaction record — no indirect dependencies between non-key fields.</li>
+  </ul>
+  <p>All non-key attributes are only dependent on primary keys, and nothing else.</p>
+  
+  <div class="section-divider"></div>
+  
+  <h2 id="creation-data">8. Creation of Data in Tables (Sample SQL INSERT Statements)</h2>
+  
+  <h4>1. AuthenticationSystem:</h4>
+  <pre><code class="language-sql">
+  INSERT INTO AuthenticationSystem (LoginId, Password) VALUES
+  (101, 'pass123'),
+  (102, 'secure456'),
+  (103, 'alpha789');
+  </code></pre>
+  
+  <h4>2. Staff:</h4>
+  <pre><code class="language-sql">
+  INSERT INTO Staff (Staff_id, Name, LoginId) VALUES
+  (1, 'Alice Johnson', 101),
+  (2, 'Bob Smith', 102),
+  (3, 'Charlie Brown', 103);
+  </code></pre>
+  
+  <h4>3. Readers:</h4>
+  <pre><code class="language-sql">
+  INSERT INTO Readers (User_ID, Firstname, Lastname, Email, Phone_no, Address) VALUES
+  (201, 'John', 'Doe', 'john@example.com', '1234567890', '123 Elm Street'),
+  (202, 'Jane', 'Smith', 'jane@example.com', '9876543210', '456 Oak Avenue'),
+  (203, 'Michael', 'Lee', 'mike@example.com', '5551234567', '789 Pine Road');
+  </code></pre>
+  
+  <h4>4. Publisher:</h4>
+  <pre><code class="language-sql">
+  INSERT INTO Publisher (Publisher_id, Name, YearOfPublication) VALUES
+  (301, 'Pearson', 2020),
+  (302, 'O''Reilly', 2018),
+  (303, 'McGraw-Hill', 2019);
+  </code></pre>
+  
+  <h4>5. Books:</h4>
+  <pre><code class="language-sql">
+  INSERT INTO Books (ISBN, AuthNo, Title, Edition, Category, Price, Publisher_id) VALUES
+  (1001, 501, 'C Programming', '3rd', 'Programming', 45.99, 301),
+  (1002, 502, 'Database Systems', '2nd', 'Computer Science', 60.00, 302),
+  (1003, 503, 'Algorithms Unlocked', '1st', 'Algorithms', 55.50, 303);
+  </code></pre>
+  
+  <h4>6. ReserveReturnDate:</h4>
+  <pre><code class="language-sql">
+  INSERT INTO ReserveReturnDate (User_ID, ISBN, ReserveDate, ReturnDate, DueDate) VALUES
+  (201, 1001, '2025-03-01', '2025-03-10', '2025-03-15'),
+  (202, 1002, '2025-03-05', NULL, '2025-03-20'),
+  (203, 1003, '2025-03-07', '2025-03-14', '2025-03-21');
+  -- (Original had User_ID 204, ISBN 1004 which are not in Readers/Books sample data, adjusted for consistency)
+  </code></pre>
+  
+  <h4>7. Reports:</h4>
+  <pre><code class="language-sql">
+  INSERT INTO Reports (Reg_No, User_id, Book_No, IssueReturn, Staff_id) VALUES
+  (401, 201, 1001, 'Issue', 1), -- Staff_id changed to match Staff table
+  (402, 202, 1002, 'Issue', 2), -- Staff_id changed to match Staff table
+  (403, 203, 1003, 'Return', 3); -- Staff_id changed to match Staff table
+  -- (Original had Staff_id 101, 102, etc. which are LoginIds, corrected to Staff_ids)
+  -- (Original had User_ID 204, Book_No 1004 which are not in Readers/Books sample data, adjusted for consistency)
+  </code></pre>
+  
+  <div class="section-divider"></div>
+  
+  <h2 id="sql-queries">9. SQL Queries (Subqueries, Aggregate Functions, Joins)</h2>
+  
+  <h3>Joins</h3>
+  <h4>Get all books along with their publisher names:</h4>
+  <pre><code class="language-sql">
+  SELECT b.Title, b.Category, p.Name AS Publisher
+  FROM Books b
+  JOIN Publisher p ON b.Publisher_id = p.Publisher_id;
+  </code></pre>
+  
+  <h4>Get staff names and the titles of books they issued or returned:</h4>
+  <pre><code class="language-sql">
+  SELECT s.Name AS StaffName, rp.IssueReturn, b.Title AS BookTitle
+  FROM Reports rp
+  JOIN Staff s ON rp.Staff_id = s.Staff_id
+  JOIN Books b ON rp.Book_No = b.ISBN;
+  </code></pre>
+  
+  <h3>Subqueries</h3>
+  <h4>Find names of readers who reserved books published by 'Pearson':</h4>
+  <pre><code class="language-sql">
+  SELECT Firstname, Lastname
+  FROM Readers
+  WHERE User_ID IN (
+      SELECT rr.User_ID
+      FROM ReserveReturnDate rr
+      JOIN Books b ON rr.ISBN = b.ISBN
+      JOIN Publisher p ON b.Publisher_id = p.Publisher_id
+      WHERE p.Name = 'Pearson'
+  );
+  </code></pre>
+  
+  <h4>Find book titles with price greater than the average book price:</h4>
+  <pre><code class="language-sql">
+  SELECT Title, Price
+  FROM Books
+  WHERE Price > (
+      SELECT AVG(Price) FROM Books
+  );
+  </code></pre>
+  
+  <h3>Aggregate Functions</h3>
+  <h4>Count how many books each publisher has:</h4>
+  <pre><code class="language-sql">
+  SELECT p.Name AS Publisher, COUNT(b.ISBN) AS TotalBooks
+  FROM Publisher p
+  JOIN Books b ON p.Publisher_id = b.Publisher_id
+  GROUP BY p.Name;
+  </code></pre>
+  
+  <h4>Find the number of books reserved by each reader:</h4>
+  <pre><code class="language-sql">
+  SELECT r.User_ID, r.Firstname, r.Lastname, COUNT(rr.ISBN) AS ReservedCount
+  FROM Readers r
+  JOIN ReserveReturnDate rr ON r.User_ID = rr.User_ID
+  GROUP BY r.User_ID, r.Firstname, r.Lastname;
+  </code></pre>
+  
+  <div class="section-divider"></div>
+  
+  <h2 id="creation-views">10. Creation of Views</h2>
+  
+  <h4>reader_book_view</h4>
+  <p>Shows which reader has reserved which book and the reservation date.</p>
+  <pre><code class="language-sql">
+  CREATE VIEW reader_book_view AS
+  SELECT r.User_ID, r.Firstname, r.Lastname, b.Title, rr.ReserveDate
+  FROM Readers r
+  JOIN ReserveReturnDate rr ON r.User_ID = rr.User_ID
+  JOIN Books b ON rr.ISBN = b.ISBN;
+  </code></pre>
+  
+  <h4>book_publisher_view</h4>
+  <p>Lists books with their details and publisher name.</p>
+  <pre><code class="language-sql">
+  CREATE VIEW book_publisher_view AS
+  SELECT b.ISBN, b.Title, b.Category, b.Price, p.Name AS PublisherName
+  FROM Books b
+  JOIN Publisher p ON b.Publisher_id = p.Publisher_id;
+  </code></pre>
+  
+  <h4>staff_transaction_view</h4>
+  <p>Displays staff members, the transactions (issue/return) they handled, the book title, and the user involved.</p>
+  <pre><code class="language-sql">
+  CREATE VIEW staff_transaction_view AS
+  SELECT s.Staff_id, s.Name AS StaffName, rp.IssueReturn, b.Title AS BookTitle, rp.User_id
+  FROM Reports rp
+  JOIN Staff s ON rp.Staff_id = s.Staff_id
+  JOIN Books b ON rp.Book_No = b.ISBN;
+  </code></pre>
+  
+  <h4>reader_contact_view</h4>
+  <p>Provides a quick lookup for reader's full name and contact information.</p>
+  <pre><code class="language-sql">
+  CREATE VIEW reader_contact_view AS
+  SELECT User_ID, Firstname || ' ' || Lastname AS FullName, Email, Phone_no
+  FROM Readers;
+  </code></pre>
+  
+  <h4>publisher_book_count_view</h4>
+  <p>Shows the total number of books associated with each publisher.</p>
+  <pre><code class="language-sql">
+  CREATE VIEW publisher_book_count_view AS
+  SELECT p.Publisher_id, p.Name AS PublisherName, COUNT(b.ISBN) AS TotalBooks
+  FROM Publisher p
+  LEFT JOIN Books b ON p.Publisher_id = b.Publisher_id -- Use LEFT JOIN to include publishers with no books
+  GROUP BY p.Publisher_id, p.Name;
+  </code></pre>
+  
+  <h4>book_price_category_view</h4>
+  <p>Categorizes books based on their price range.</p>
+  <pre><code class="language-sql">
+  CREATE VIEW book_price_category_view AS
+  SELECT
+      ISBN, Title, Category, Price,
+      CASE
+          WHEN Price < 30 THEN 'Low'
+          WHEN Price BETWEEN 30 AND 60 THEN 'Medium'
+          ELSE 'High'
+      END AS PriceRange
+  FROM Books;
+  </code></pre>
+  
+  <div class="section-divider"></div>
+  
+  <h2 id="references">11. References</h2>
+  <ul>
+    <li>Ramez_Fundamentals of DBMS</li>
+    <li>Henry F Korth Abraham Silberschatz, S Sudharshan <em>Database System Concepts</em> (6th edition)</li>
+    <li>Ramakrishnan <em>Database Management Systems</em> (3rd Edition)</li>
+    <li>Elmasri, R., & Navathe, S. B. (2017). <em>Fundamentals of Database Systems</em> (7th ed.). Pearson.</li>
+    <li>PostgreSQL Documentation. (n.d.). Retrieved from <a href="https://www.postgresql.org/docs/" target="_blank">https://www.postgresql.org/docs/</a></li>
+  </ul>
+  
+  <div class="thank-you">
+    <p>THANK YOU</p>
+  </div>
+  
+  </div>
+  
